@@ -5,8 +5,8 @@
    <tag></tag>
    <defaultProfile>false</defaultProfile>
    <GlobalVariableEntity>
-      <description></description>
-      <initValue>'https://fakerestapi.azurewebsites.net'</initValue>
+      <description>Environment yang digunakan</description>
+      <initValue>'https://kasir-api.belajarqa.com'</initValue>
       <name>baseURL</name>
    </GlobalVariableEntity>
 </GlobalVariableEntities>

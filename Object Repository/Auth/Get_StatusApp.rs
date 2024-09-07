@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebServiceRequestEntity>
    <description>Get list Authors</description>
-   <name>Get_listAuthors</name>
+   <name>Get_StatusApp</name>
    <tag></tag>
-   <elementGuidId>6911f812-6e59-435e-af4f-06a24f7449b6</elementGuidId>
+   <elementGuidId>f5c218d7-2f61-4248-9c43-8024dfaa9f88</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <smartLocatorEnabled>false</smartLocatorEnabled>
    <useRalativeImagePath>false</useRalativeImagePath>
-   <autoUpdateContent>true</autoUpdateContent>
+   <autoUpdateContent>false</autoUpdateContent>
    <connectionTimeout>0</connectionTimeout>
    <followRedirects>false</followRedirects>
    <httpBody></httpBody>
@@ -18,7 +18,7 @@
    <migratedVersion>5.4.1</migratedVersion>
    <path></path>
    <restRequestMethod>GET</restRequestMethod>
-   <restUrl>${baseURL}/api/v1/Authors</restUrl>
+   <restUrl>${baseURL}?statusApp=${statusApp}</restUrl>
    <serviceType>RESTful</serviceType>
    <soapBody></soapBody>
    <soapHeader></soapHeader>
@@ -27,15 +27,6 @@
    <soapServiceFunction></soapServiceFunction>
    <socketTimeout>0</socketTimeout>
    <useServiceInfoFromWsdl>true</useServiceInfoFromWsdl>
-   <validationSteps>
-      <id>0c40f014-8cea-4f8d-a889-4cc478a7a6e7</id>
-      <name>validateResponListAuthors</name>
-      <type>JSON_SCHEMA</type>
-      <dataType>FILE</dataType>
-      <target>RESPONSE</target>
-      <data>/Users/achmad/Documents/Automation/jsonSchemalistAuthors.json</data>
-      <activate>true</activate>
-   </validationSteps>
    <variables>
       <defaultValue>GlobalVariable.baseURL</defaultValue>
       <description>URL API Test Automation</description>
@@ -55,6 +46,20 @@ import internal.GlobalVariable as GlobalVariable
 
 RequestObject request = WSResponseManager.getInstance().getCurrentRequest()
 
-ResponseObject response = WSResponseManager.getInstance().getCurrentResponse()</verificationScript>
+ResponseObject response = WSResponseManager.getInstance().getCurrentResponse()
+
+'Memeriksa status aplikasi'
+statusApp = WS.verifyElementPropertyValue(response, 'data.status', &quot;Ok!&quot;)
+
+'Memeriksa nama aplikasi'
+nameApp = WS.verifyElementPropertyValue(response, 'data.name', &quot;kasirAja Api&quot;)
+
+'Memeriksa versi aplikasi'
+versionApp = WS.verifyElementPropertyValue(response, 'data.version', &quot;1.0.0&quot;)
+
+'Memastikan respon balikan service 200'
+WS.verifyResponseStatusCode(response, 200)
+
+assertThat(response.getStatusCode()).isEqualTo(200)</verificationScript>
    <wsdlAddress></wsdlAddress>
 </WebServiceRequestEntity>
