@@ -42,6 +42,6 @@ println('Versi berapa aplikasinya? ' + getversionAPP)
 
 def testObject = WS.sendRequest(findTestObject('Auth/Get_StatusApp', [('baseURL') : GlobalVariable.baseURL]))
 
-StatusKeyword = CustomKeywords.'apiPackage.verifyExpectedResponse.readServiceContent'(testObject)
-println StatusKeyword
+//StatusKeyword = CustomKeywords.'apiPackage.verifyExpectedResponse.readServiceContent'(testObject)
+//println StatusKeyword
 

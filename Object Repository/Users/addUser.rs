@@ -1,14 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebServiceRequestEntity>
-   <description>Menambahkan Author baru</description>
-   <name>Registration</name>
+   <description>Menambahkan user baru</description>
+   <name>addUser</name>
    <tag></tag>
-   <elementGuidId>551cc632-2994-48bd-acd6-0501573a0e29</elementGuidId>
+   <elementGuidId>87708f16-822e-44c2-a332-30fbc16352b3</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <smartLocatorEnabled>false</smartLocatorEnabled>
    <useRalativeImagePath>false</useRalativeImagePath>
+   <authorizationRequest>
+      <authorizationInfo>
+         <entry>
+            <key>bearerToken</key>
+            <value>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImIxYWU1OGNhLWExYjUtNGMzNi1iNmUwLWQ1YWM2NzU1MDAzNyIsImNvbXBhbnlJZCI6ImM2NjQzYjNkLTFmYTAtNDcyYS1iMjQ5LTk0NWVjNDU3YzEyMyIsImlhdCI6MTY4NTEwMDUyM30.VlhKeAJPejvTvmJbjKtyrLnHLDDRGrGAZ1BryYYPz_A</value>
+         </entry>
+      </authorizationInfo>
+      <authorizationType>Bearer</authorizationType>
+   </authorizationRequest>
    <autoUpdateContent>false</autoUpdateContent>
-   <connectionTimeout>0</connectionTimeout>
+   <connectionTimeout>-1</connectionTimeout>
    <followRedirects>false</followRedirects>
    <httpBody></httpBody>
    <httpBodyContent>{
@@ -23,47 +32,55 @@
       <name>Content-Type</name>
       <type>Main</type>
       <value>application/json</value>
-      <webElementGuid>b57c6c3b-1c3c-4135-9ae3-1925fb8666d1</webElementGuid>
+      <webElementGuid>243a8923-89bd-4f02-a28e-78c4467b468c</webElementGuid>
+   </httpHeaderProperties>
+   <httpHeaderProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>Authorization</name>
+      <type>Main</type>
+      <value>Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImIxYWU1OGNhLWExYjUtNGMzNi1iNmUwLWQ1YWM2NzU1MDAzNyIsImNvbXBhbnlJZCI6ImM2NjQzYjNkLTFmYTAtNDcyYS1iMjQ5LTk0NWVjNDU3YzEyMyIsImlhdCI6MTY4NTEwMDUyM30.VlhKeAJPejvTvmJbjKtyrLnHLDDRGrGAZ1BryYYPz_A</value>
+      <webElementGuid>1d38da76-6953-4a9d-a5d8-43fb0d302374</webElementGuid>
    </httpHeaderProperties>
    <katalonVersion>9.6.0</katalonVersion>
-   <maxResponseSize>0</maxResponseSize>
+   <maxResponseSize>-1</maxResponseSize>
    <migratedVersion>5.4.1</migratedVersion>
    <path></path>
    <restRequestMethod>POST</restRequestMethod>
-   <restUrl>${baseURL}/registration?name=${name}&amp;email=${email}&amp;password=${password}&amp;statusDaftar=${statusDaftar}</restUrl>
+   <restUrl>${baseURL}/users</restUrl>
    <serviceType>RESTful</serviceType>
    <soapBody></soapBody>
    <soapHeader></soapHeader>
    <soapRequestMethod></soapRequestMethod>
    <soapServiceEndpoint></soapServiceEndpoint>
    <soapServiceFunction></soapServiceFunction>
-   <socketTimeout>0</socketTimeout>
+   <socketTimeout>-1</socketTimeout>
    <useServiceInfoFromWsdl>true</useServiceInfoFromWsdl>
    <variables>
       <defaultValue>GlobalVariable.baseURL</defaultValue>
-      <description>Memulai dengan URL yang terdapat pada global variable</description>
-      <id>c8c1dd61-3eb0-40bc-892e-5d1805a6f8b7</id>
+      <description>Melakukan hit status app</description>
+      <id>d58374f7-e2eb-4910-aac4-4806835a0e8e</id>
       <masked>false</masked>
       <name>baseURL</name>
    </variables>
    <variables>
       <defaultValue>findTestData('DataTest').getValue(1, 1)</defaultValue>
-      <description>Melakukan input nama yang bersumber dari file excel</description>
-      <id>be02a8ee-1b29-4b49-98cd-bbac8ee06ff1</id>
+      <description></description>
+      <id>39f80dcd-1955-4d84-af30-b032a905fd5e</id>
       <masked>false</masked>
       <name>name</name>
    </variables>
    <variables>
-      <defaultValue>findTestData('DataTest').getValue(2, 1)</defaultValue>
-      <description>Melakukan input email yang bersumber dari file excel</description>
-      <id>397aee35-4ccf-4899-82ec-9dfe00625c7a</id>
+      <defaultValue>findTestData('DataTest').getValue(2, 2)</defaultValue>
+      <description></description>
+      <id>7a5cc084-8b93-45d3-9aa9-452a17296213</id>
       <masked>false</masked>
       <name>email</name>
    </variables>
    <variables>
-      <defaultValue>findTestData('DataTest').getValue(3, 1)</defaultValue>
-      <description>Melakukan input password yang bersumber dari file excel</description>
-      <id>dbbc8f19-19e0-473b-a725-83f0a7b5bf49</id>
+      <defaultValue>findTestData('DataTest').getValue(3, 2)</defaultValue>
+      <description></description>
+      <id>0b939032-d6b1-461e-b066-8d281332b938</id>
       <masked>false</masked>
       <name>password</name>
    </variables>
@@ -79,15 +96,6 @@ import internal.GlobalVariable as GlobalVariable
 
 RequestObject request = WSResponseManager.getInstance().getCurrentRequest()
 
-ResponseObject response = WSResponseManager.getInstance().getCurrentResponse()
-
-'Memastikan respon balikan service 200'
-WS.verifyResponseStatusCode(response, 201)
-
-assertThat(response.getStatusCode()).isEqualTo(201)
-
-'Memastikan status pendaftaran toko sukses'
-def statusDaftar = WS.verifyElementPropertyValue(response, 'status', &quot;success&quot;)
-WS.verifyElementPropertyValue(response, 'data.name', &quot;Andrian&quot;)</verificationScript>
+ResponseObject response = WSResponseManager.getInstance().getCurrentResponse()</verificationScript>
    <wsdlAddress></wsdlAddress>
 </WebServiceRequestEntity>

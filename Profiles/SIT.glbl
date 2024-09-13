@@ -6,7 +6,12 @@
    <defaultProfile>false</defaultProfile>
    <GlobalVariableEntity>
       <description>Environment yang digunakan</description>
-      <initValue>'https://kasir-api.belajarqa.com'</initValue>
+      <initValue>'https://kasir-api.zelz.my.id'</initValue>
       <name>baseURL</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description>untuk authentikasi login dan logout</description>
+      <initValue>'x'</initValue>
+      <name>refreshToken</name>
    </GlobalVariableEntity>
 </GlobalVariableEntities>

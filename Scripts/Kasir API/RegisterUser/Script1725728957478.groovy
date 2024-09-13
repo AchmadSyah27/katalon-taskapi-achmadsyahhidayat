@@ -15,25 +15,46 @@ import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords as WS
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import internal.GlobalVariable as GlobalVariable
-import javassist.expr.Instanceof as Instanceof
 import org.openqa.selenium.Keys as Keys
-import com.kms.katalon.core.testobject.RequestObject as RequestObject
+import groovy.json.JsonSlurper as JsonSlurper
 import com.kms.katalon.core.testobject.ResponseObject as ResponseObject
+import static org.junit.Assert.assertEquals
 
-WS.comment('Melakukan daftar pada aplikasi kasir')
+def slurper = new JsonSlurper()
 
 WebUI.callTestCase(findTestCase('Kasir API/AboutAplikasi'), [:], FailureHandling.STOP_ON_FAILURE)
 
-'Melakukan registrasi pada aplikasi dengan inputan melalui sumber data pada file excel'
-def response = WS.sendRequest(findTestObject('Auth/Registration'))
+'Melakukan hit service registration'
+def response = WS.sendRequestAndVerify(findTestObject('Auth/Registration'))
 
-'Memastikan respon balikan service 200'
-WS.verifyResponseStatusCode(response, 200)
+'Mendapatkan isi konten dari service'
+def getContent = slurper.parseText(response.getResponseBodyContent())
 
-'Mengambil value yang diinput pada email user'
-def namatoko = WS.getElementPropertyValue(response, 'data.name')
+println(getContent)
 
-println namatoko
+'Mengambil isi konten nama yang didaftarkan'
+String getValueName = getContent.data.name
 
-def namatoko = WS.getElementPropertyValue(response, 'data.name')
+println(getValueName)
+
+'Mengambil isi konten email yang didaftarkan'
+String getValueEmail = getContent.data.email
+
+println(getValueEmail)
+
+'Mengambil data nama dari excel yang diinput ke sistem'
+DataInputNama = findTestData('DataTest').getValue(1, 1)
+
+println(DataInputNama)
+
+'Memastikan inputan data nama dari file excel dengan respon balikan nama dari api sesuai'
+assertEquals(getValueName, DataInputNama)
+
+'Mengambil data email dari excel yang diinput ke sistem'
+DataInputEmail = findTestData('DataTest').getValue(2, 1)
+
+println(DataInputEmail)
+
+'Memastikan inputan data email dari file excel dengan respon balikan email dari api sesuai'
+assertEquals(getValueEmail, DataInputEmail)
 
