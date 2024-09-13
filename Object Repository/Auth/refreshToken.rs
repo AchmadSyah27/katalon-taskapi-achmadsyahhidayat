@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebServiceRequestEntity>
    <description>Melakukan update pada spesifik author</description>
-   <name>Put_dataAuthor</name>
+   <name>refreshToken</name>
    <tag></tag>
    <elementGuidId>bfdd8ff3-feb0-49b9-bf6c-04ba01506705</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
@@ -12,7 +12,7 @@
    <followRedirects>false</followRedirects>
    <httpBody></httpBody>
    <httpBodyContent>{
-  &quot;text&quot;: &quot;{\n  \&quot;id\&quot;: 9,\n  \&quot;idBook\&quot;: 9,\n  \&quot;firstName\&quot;: \&quot;${firstname}\&quot;,\n  \&quot;lastName\&quot;: \&quot;${lastname}\&quot;\n}&quot;,
+  &quot;text&quot;: &quot;{\n    \&quot;refreshToken\&quot;: \&quot;${refreshToken}\&quot;\n}&quot;,
   &quot;contentType&quot;: &quot;application/json&quot;,
   &quot;charset&quot;: &quot;UTF-8&quot;
 }</httpBodyContent>
@@ -30,7 +30,7 @@
    <migratedVersion>5.4.1</migratedVersion>
    <path></path>
    <restRequestMethod>PUT</restRequestMethod>
-   <restUrl>${baseURL}/api/v1/Authors/9</restUrl>
+   <restUrl>${baseURL}/authentications?refreshToken=${refreshToken}</restUrl>
    <serviceType>RESTful</serviceType>
    <soapBody></soapBody>
    <soapHeader></soapHeader>
@@ -47,18 +47,11 @@
       <name>baseURL</name>
    </variables>
    <variables>
-      <defaultValue>findTestData('DataTest').getValue(3, 1)</defaultValue>
-      <description></description>
-      <id>66029d90-5b07-4503-bbc9-fcdaf47d7ba7</id>
+      <defaultValue>GlobalVariable.refreshToken</defaultValue>
+      <description>Token untuk keperluan authentikasi login dan logout</description>
+      <id>67e52a8b-5786-47b9-b8dd-6a793538a4cb</id>
       <masked>false</masked>
-      <name>firstname</name>
-   </variables>
-   <variables>
-      <defaultValue>findTestData('DataTest').getValue(4, 1)</defaultValue>
-      <description></description>
-      <id>458e256c-0d95-449f-ac3c-7941930026b1</id>
-      <masked>false</masked>
-      <name>lastname</name>
+      <name>refreshToken</name>
    </variables>
    <verificationScript>import static org.assertj.core.api.Assertions.*
 
@@ -73,7 +66,11 @@ import internal.GlobalVariable as GlobalVariable
 RequestObject request = WSResponseManager.getInstance().getCurrentRequest()
 
 ResponseObject response = WSResponseManager.getInstance().getCurrentResponse()
-WS.verifyElementPropertyValue(response, 'firstName', &quot;Tomy&quot;)
-WS.verifyElementPropertyValue(response, 'lastName', &quot;Wijaya&quot;)</verificationScript>
+
+
+'Memastikan respon service 200'
+WS.verifyResponseStatusCode(response, 200)
+
+assertThat(response.getStatusCode()).isEqualTo(200)</verificationScript>
    <wsdlAddress></wsdlAddress>
 </WebServiceRequestEntity>

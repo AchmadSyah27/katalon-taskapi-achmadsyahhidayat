@@ -12,25 +12,17 @@
    <followRedirects>false</followRedirects>
    <httpBody></httpBody>
    <httpBodyContent>{
-  &quot;text&quot;: &quot;{\n    \&quot;email\&quot;: \&quot;andrian.soedjadi18@gmail.com\&quot;,\n    \&quot;password\&quot;: \&quot;P@ssw0rd\&quot;\n}&quot;,
+  &quot;text&quot;: &quot;{\n    \&quot;email\&quot;: \&quot;${email}\&quot;,\n    \&quot;password\&quot;: \&quot;${password}\&quot;\n}&quot;,
   &quot;contentType&quot;: &quot;application/json&quot;,
   &quot;charset&quot;: &quot;UTF-8&quot;
 }</httpBodyContent>
    <httpBodyType>text</httpBodyType>
-   <httpHeaderProperties>
-      <isSelected>true</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>Content-Type</name>
-      <type>Main</type>
-      <value>application/json</value>
-      <webElementGuid>1847c9c5-1f88-4327-b2ac-c155e8405fc4</webElementGuid>
-   </httpHeaderProperties>
    <katalonVersion>9.6.0</katalonVersion>
    <maxResponseSize>0</maxResponseSize>
    <migratedVersion>5.4.1</migratedVersion>
    <path></path>
    <restRequestMethod>POST</restRequestMethod>
-   <restUrl>${baseURL}/authentications</restUrl>
+   <restUrl>${baseURL}/authentications?email=${email}&amp;password=${password}</restUrl>
    <serviceType>RESTful</serviceType>
    <soapBody></soapBody>
    <soapHeader></soapHeader>
@@ -41,21 +33,21 @@
    <useServiceInfoFromWsdl>true</useServiceInfoFromWsdl>
    <variables>
       <defaultValue>GlobalVariable.baseURL</defaultValue>
-      <description>'Melakukan hit status app'</description>
+      <description>Melakukan hit status app</description>
       <id>0b92d6db-6411-4f32-b1ef-a026b04994cb</id>
       <masked>false</masked>
       <name>baseURL</name>
    </variables>
    <variables>
-      <defaultValue>findTestData('DataTest').getValue(3, 1)</defaultValue>
-      <description></description>
+      <defaultValue>findTestData('DataTest').getValue(2, 1)</defaultValue>
+      <description>Mengambil data email dari file excel</description>
       <id>f86706ce-70bf-4c9e-baf7-ca9eee1ac8e3</id>
       <masked>false</masked>
       <name>email</name>
    </variables>
    <variables>
-      <defaultValue>findTestData('DataTest').getValue(4, 1)</defaultValue>
-      <description></description>
+      <defaultValue>findTestData('DataTest').getValue(3, 1)</defaultValue>
+      <description>Mengambil data password dari file excel</description>
       <id>a2ad2a1d-8c09-43a3-97f4-2376d7b3ba43</id>
       <masked>false</masked>
       <name>password</name>
@@ -72,6 +64,12 @@ import internal.GlobalVariable as GlobalVariable
 
 RequestObject request = WSResponseManager.getInstance().getCurrentRequest()
 
-ResponseObject response = WSResponseManager.getInstance().getCurrentResponse()</verificationScript>
+ResponseObject response = WSResponseManager.getInstance().getCurrentResponse()
+
+'Memastikan response service yang berhasil adalah 201'
+WS.verifyResponseStatusCode(response, 201)
+
+assertThat(response.getStatusCode()).isEqualTo(201)
+</verificationScript>
    <wsdlAddress></wsdlAddress>
 </WebServiceRequestEntity>

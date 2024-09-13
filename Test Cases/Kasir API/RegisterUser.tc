@@ -1,9 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <TestCaseEntity>
-   <description></description>
+   <description>Melakukan hit service register untuk mendaftarkan akun</description>
    <name>RegisterUser</name>
    <tag></tag>
    <comment></comment>
    <recordOption>OTHER</recordOption>
-   <testCaseGuid>5f8bc4f9-16ac-4773-a082-8c7de5ea8dfa</testCaseGuid>
+   <testCaseGuid>a3004178-775e-4f15-9113-efacf27a1fb4</testCaseGuid>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>4720dec1-4ab7-4074-9c41-b7e15d40aaee</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>ebb52937-09ea-4767-8dfa-72791911a116</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>d0f98641-4a92-4e03-ba20-288828c10783</variableId>
+   </variableLinks>
+   <variable>
+      <defaultValue>findTestObject('Auth/Registration', [('baseURL') : GlobalVariable.baseURL, ('name') : findTestData('DataTest').getValue(2, 1), ('email') : findTestData('DataTest').getValue(3, 1), ('password') : findTestData('DataTest').getValue(4, 1)])</defaultValue>
+      <description></description>
+      <id>4720dec1-4ab7-4074-9c41-b7e15d40aaee</id>
+      <masked>false</masked>
+      <name>name</name>
+   </variable>
+   <variable>
+      <defaultValue>findTestObject('Auth/Registration', [('baseURL') : GlobalVariable.baseURL, ('name') : findTestData('DataTest').getValue(2, 1), ('email') : findTestData('DataTest').getValue(3, 1), ('password') : findTestData('DataTest').getValue(4, 1)])</defaultValue>
+      <description></description>
+      <id>ebb52937-09ea-4767-8dfa-72791911a116</id>
+      <masked>false</masked>
+      <name>email</name>
+   </variable>
+   <variable>
+      <defaultValue>findTestObject('Auth/Registration', [('baseURL') : GlobalVariable.baseURL, ('name') : findTestData('DataTest').getValue(2, 1), ('email') : findTestData('DataTest').getValue(3, 1), ('password') : findTestData('DataTest').getValue(4, 1)])</defaultValue>
+      <description></description>
+      <id>d0f98641-4a92-4e03-ba20-288828c10783</id>
+      <masked>false</masked>
+      <name>password</name>
+   </variable>
 </TestCaseEntity>
