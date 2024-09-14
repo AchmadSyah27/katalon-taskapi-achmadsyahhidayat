@@ -105,80 +105,80 @@ println('akses token baru = ' + getRefreshToken)
 
 '============================================================'
 
-'====================Melakukan get user===================='
-
-'Melakukan hit service addUser'
-def response4 = WS.sendRequestAndVerify(findTestObject('Users/getUser', [('baseURL') : GlobalVariable.baseURL, ('aksesToken') : GlobalVariable.aksesToken]))
-
-'Memastikan response service 200'
-WS.verifyResponseStatusCode(response4, 200)
-
-'Mendapatkan isi konten dari service'
-def getContent4 = slurper.parseText(response4.getResponseBodyContent())
-
-println(getContent4)
-
-'Mengambil email yang digunakan untuk login'
-String statusGetUser = getContent4.status
-
-'Mengambil isi akses token login'
-String getNamaUsers = getContent4.data.users[0].name
-
-'Mengambil isi refresh token login'
-String getEmailUsers = getContent4.data.users[0].email
-
-
-println('status get usernya adalah ' + statusGetUser)
-
-println('nama usernya adalah ' + getNamaUsers)
-
-println('email user-nya adalah ' + getEmailUsers)
-'============================================================'
-
-'====================Melakukan delete user===================='
-'Melakukan hit service addUser'
-def response5 = WS.sendRequestAndVerify(findTestObject('Users/getUser', [('baseURL') : GlobalVariable.baseURL, ('aksesToken') : GlobalVariable.aksesToken]))
-
-'Memastikan response service 200'
-WS.verifyResponseStatusCode(response5, 200)
-'============================================================'
-
-'====================Melakukan add user===================='
-
-'Melakukan hit service addUser'
-def response2 = WS.sendRequestAndVerify(findTestObject('Users/addUser', [('baseURL') : GlobalVariable.baseURL, ('name') : findTestData(
-                'DataTest').getValue(1, 2), ('email') : findTestData('DataTest').getValue(2, 2), ('password') : findTestData(
-                'DataTest').getValue(3, 2), ('aksesToken') : GlobalVariable.aksesToken]))
-
-'Memastikan response service 201'
-WS.verifyResponseStatusCode(response2, 201)
-
-'Mendapatkan isi konten dari service'
-def getContent2 = slurper.parseText(response.getResponseBodyContent())
-
-println(getContent2)
-
-'Mengambil isi akses token login'
-String getStatusAdd = getContent2.status
-
-'Mengambil isi refresh token login'
-String getMessageService = getContent2.message
-
-'Mengambil email yang digunakan untuk login'
-String valueUserID = getContent2.data.userId
-
-'Mengambil email yang digunakan untuk login'
-String valueNamaUser = getConten2t.data.name
-
-println('status tambah usernya adalah ' + getStatusAdd)
-
-println('message tambah usernya adalah ' + getMessageService)
-
-println('user id-nya adalah ' + valueUserID)
-
-println('nama user-nya adalah ' + valueNamaUser)
-
-'============================================================'
+//'====================Melakukan get user===================='
+//
+//'Melakukan hit service addUser'
+//def response4 = WS.sendRequestAndVerify(findTestObject('Users/getUser', [('baseURL') : GlobalVariable.baseURL, ('aksesToken') : GlobalVariable.aksesToken]))
+//
+//'Memastikan response service 200'
+//WS.verifyResponseStatusCode(response4, 200)
+//
+//'Mendapatkan isi konten dari service'
+//def getContent4 = slurper.parseText(response4.getResponseBodyContent())
+//
+//println(getContent4)
+//
+//'Mengambil email yang digunakan untuk login'
+//String statusGetUser = getContent4.status
+//
+//'Mengambil isi akses token login'
+//String getNamaUsers = getContent4.data.users[0].name
+//
+//'Mengambil isi refresh token login'
+//String getEmailUsers = getContent4.data.users[0].email
+//
+//
+//println('status get usernya adalah ' + statusGetUser)
+//
+//println('nama usernya adalah ' + getNamaUsers)
+//
+//println('email user-nya adalah ' + getEmailUsers)
+//'============================================================'
+//
+//'====================Melakukan delete user===================='
+//'Melakukan hit service addUser'
+//def response5 = WS.sendRequestAndVerify(findTestObject('Users/getUser', [('baseURL') : GlobalVariable.baseURL, ('aksesToken') : GlobalVariable.aksesToken]))
+//
+//'Memastikan response service 200'
+//WS.verifyResponseStatusCode(response5, 200)
+//'============================================================'
+//
+//'====================Melakukan add user===================='
+//
+//'Melakukan hit service addUser'
+//def response2 = WS.sendRequestAndVerify(findTestObject('Users/addUser', [('baseURL') : GlobalVariable.baseURL, ('name') : findTestData(
+//                'DataTest').getValue(1, 2), ('email') : findTestData('DataTest').getValue(2, 2), ('password') : findTestData(
+//                'DataTest').getValue(3, 2), ('aksesToken') : GlobalVariable.aksesToken]))
+//
+//'Memastikan response service 201'
+//WS.verifyResponseStatusCode(response2, 201)
+//
+//'Mendapatkan isi konten dari service'
+//def getContent2 = slurper.parseText(response.getResponseBodyContent())
+//
+//println(getContent2)
+//
+//'Mengambil isi akses token login'
+//String getStatusAdd = getContent2.status
+//
+//'Mengambil isi refresh token login'
+//String getMessageService = getContent2.message
+//
+//'Mengambil email yang digunakan untuk login'
+//String valueUserID = getContent2.data.userId
+//
+//'Mengambil email yang digunakan untuk login'
+//String valueNamaUser = getConten2t.data.name
+//
+//println('status tambah usernya adalah ' + getStatusAdd)
+//
+//println('message tambah usernya adalah ' + getMessageService)
+//
+//println('user id-nya adalah ' + valueUserID)
+//
+//println('nama user-nya adalah ' + valueNamaUser)
+//
+//'============================================================'
 
 //'Menempatkan refresh token kedalam variable'
 //NewToken = WS.getElementPropertyValue(response1, 'data.refreshToken')

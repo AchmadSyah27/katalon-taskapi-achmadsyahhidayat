@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description>Melakukan login dan refresh token yang dimana token selalu diupdate kedalam global variable bernama refreshToken lalu lllogout</description>
+   <name>Excercise5</name>
+   <tag></tag>
+   <comment></comment>
+   <recordOption>OTHER</recordOption>
+   <testCaseGuid>d247c367-a110-431b-9bc1-6d92f3f0da1e</testCaseGuid>
+</TestCaseEntity>

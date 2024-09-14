@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description>Admin melakukan logout dari sistem</description>
+   <name>Logout</name>
+   <tag></tag>
+   <comment></comment>
+   <recordOption>OTHER</recordOption>
+   <testCaseGuid>1c8cdfc0-84f7-4552-9598-1127150cfc97</testCaseGuid>
+</TestCaseEntity>

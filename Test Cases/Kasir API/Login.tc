@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <TestCaseEntity>
-   <description></description>
+   <description>Melakukan login dan refresh token yang dimana token selalu diupdate kedalam global variable bernama refreshToken</description>
    <name>Login</name>
    <tag></tag>
    <comment></comment>

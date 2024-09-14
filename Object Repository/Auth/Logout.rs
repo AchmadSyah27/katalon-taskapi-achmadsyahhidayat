@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebServiceRequestEntity>
    <description>Menghapus user</description>
-   <name>Delete_user</name>
+   <name>Logout</name>
    <tag></tag>
    <elementGuidId>3f363ef7-a417-4b58-b457-e5518627cfba</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>

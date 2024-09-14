@@ -14,4 +14,9 @@
       <initValue>'x'</initValue>
       <name>refreshToken</name>
    </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description>untuk authentikasi add user</description>
+      <initValue>'x'</initValue>
+      <name>aksesToken</name>
+   </GlobalVariableEntity>
 </GlobalVariableEntities>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description>Login sebagai admin dan menambahkan user</description>
+   <name>Add User</name>
+   <tag></tag>
+   <comment></comment>
+   <recordOption>OTHER</recordOption>
+   <testCaseGuid>84028eb2-0f30-4fd4-960f-f4969ec6ff7b</testCaseGuid>
+</TestCaseEntity>
