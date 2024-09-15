@@ -12,35 +12,10 @@
    <rerunImmediately>true</rerunImmediately>
    <testSuiteGuid>f8fb807d-7963-4479-9fe9-69d04715656c</testSuiteGuid>
    <testCaseLink>
-      <guid>60242beb-7f9d-4ee4-98c6-68761c6d8ca4</guid>
+      <guid>a365e85b-ccdd-423a-b1e3-d45bf7ed54a2</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
-      <testCaseId>Test Cases/Kasir API/AboutAplikasi</testCaseId>
+      <testCaseId>Test Cases/Excercise5/Excercise5</testCaseId>
       <usingDataBindingAtTestSuiteLevel>true</usingDataBindingAtTestSuiteLevel>
-   </testCaseLink>
-   <testCaseLink>
-      <guid>1149bbe7-027c-46bf-9217-a49881a11142</guid>
-      <isReuseDriver>false</isReuseDriver>
-      <isRun>true</isRun>
-      <testCaseId>Test Cases/Kasir API/RegisterUser</testCaseId>
-      <usingDataBindingAtTestSuiteLevel>true</usingDataBindingAtTestSuiteLevel>
-      <variableLink>
-         <testDataLinkId></testDataLinkId>
-         <type>DEFAULT</type>
-         <value></value>
-         <variableId>4720dec1-4ab7-4074-9c41-b7e15d40aaee</variableId>
-      </variableLink>
-      <variableLink>
-         <testDataLinkId></testDataLinkId>
-         <type>DEFAULT</type>
-         <value></value>
-         <variableId>ebb52937-09ea-4767-8dfa-72791911a116</variableId>
-      </variableLink>
-      <variableLink>
-         <testDataLinkId></testDataLinkId>
-         <type>DEFAULT</type>
-         <value></value>
-         <variableId>d0f98641-4a92-4e03-ba20-288828c10783</variableId>
-      </variableLink>
    </testCaseLink>
 </TestSuiteEntity>
